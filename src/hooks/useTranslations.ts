@@ -1,5 +1,5 @@
 // eslint-disable-next-line camelcase
-import { pl_PL } from './../dictionaries/pl_PL'
+import { pl_PL } from '../dictionaries'
 
 export const useTranslations = () => {
 	// eslint-disable-next-line camelcase
