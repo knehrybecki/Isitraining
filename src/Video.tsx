@@ -2,7 +2,7 @@ import { Composition } from 'remotion'
 import { IsItRaining } from './components'
 import { VIDEO_CONFIG } from './config'
 import React from 'react'
-
+import './reset.css'
 export const RemotionVideo: React.FunctionComponent = () => {
 	const {
 		FPS,
