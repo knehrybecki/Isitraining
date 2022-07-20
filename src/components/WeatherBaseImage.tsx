@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { WeatherState } from '../common'
 import { Img } from 'remotion'
-import { images } from '../assets'
+import { Images } from '../assets'
 
 type WeatherBaseImageProps = {
 	weatherState: WeatherState
@@ -13,12 +13,12 @@ export const WeatherBaseImage: React.FunctionComponent<WeatherBaseImageProps> = 
 	switch (weatherState) {
 		case WeatherState.Rainging:
     case WeatherState.ThunderStrom:
-      return <Umbrella src={images.Umbrella} />
+      return <Umbrella src={Images.Umbrella} />
     case WeatherState.Snowing:
-      return <ChristmasTree src={images.ChristmasTree} />
+      return <ChristmasTree src={Images.ChristmasTree} />
     case WeatherState.Cloudy:
     case WeatherState.Sunny:
-      return <SunBeds src={images.SunBeds} />
+      return <SunBeds src={Images.SunBeds} />
 		default:
 			return null
 	}

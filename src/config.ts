@@ -15,14 +15,14 @@ export const VIDEO_CONFIG = {
 
 export const APP_CONFIG = {
 	CITY: 'Rzeszów',
-	DISCORD_URL: 'todo',
+	DISCORD_URL: 'https://discord.gg/GcXKDnxk',
 	WEATHER_API_KEY: 'todo',
 }
 
 export const COMPOSITION_CONFIG = {
 	VIDEO: {
 		BACKGROUND_COLOR: '#2FD7F5',
-		OUTRO_BACKGROUND_COLOR: '#2231320',
+		OUTRO_BACKGROUND_COLOR: '#22313D',
 	},
 	TEXT: {
 		FONT_SIZE: {

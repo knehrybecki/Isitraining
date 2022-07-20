@@ -12,11 +12,11 @@ export const pl_PL = {
 		sunny: 'Jest słonecznie',
 		snowing: 'Pada śnieg',
 		thunderstorm: 'Pada burza',
-		cloudy: 'Pochmurno i nie Pada!'
+		cloudy: 'Pochmurno i nie Pada!',
 	},
 	outro: {
-		question: 'Chcesz wiedzieć jak zaprogramować swojego bota ?',
-		discord: 'Dołącz do naszej grupy na Discordie',
-		note: 'Wideo zostało wygenerowane automatycznie',
+		question: 'Chcesz wiedzieć\njak zaprogramować swojego bota ?',
+		discord: 'Dołącz do naszej grupy na Discord:',
+		note: 'Wideo zostało\nwygenerowane automatycznie',
 	},
 }

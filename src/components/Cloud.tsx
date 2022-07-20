@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Img } from 'remotion'
-import { images } from '../assets'
+import { Images } from '../assets'
 
 type CloudProps = {
 	translateX?: number
@@ -16,7 +16,7 @@ export const Cloud: React.FunctionComponent<CloudProps> = ({
 	rotate = 0,
 }) => (
 	<BaseCloud
-		src={images.Cloud}
+		src={Images.Cloud}
 		style={{
 			transform: `translateX(${translateX}px) translateY(${translateY}px) scale(${scale}) rotate(${rotate}deg)`,
 		}}
