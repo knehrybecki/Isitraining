@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { WeatherState } from '../common'
-import { Cloud, Typography, VideoBackground, WeatherBaseImage } from '../components'
+import { Cloud, RainCloud, Typography, VideoBackground, WeatherBaseImage } from '../components'
 import { COMPOSITION_CONFIG } from '../config'
 import { useTranslations, useWeatherStateName } from '../hooks'
 
@@ -29,12 +29,12 @@ export const Result: React.FunctionComponent<ResultProps> = ({
 					<Typography.Heading>{stateName}</Typography.Heading>
 				</TextContainer>
 			</Container>
-			<Cloud rotate={15} scale={0.6} translateX={500} translateY={-940} />
-			<Cloud rotate={-15} scale={0.6} translateX={-430} translateY={-980} />
-			<Cloud translateX={0} translateY={-600} />
-			<Cloud scale={0.8} translateX={-530} translateY={-380} />
-			<Cloud scale={0.7} translateX={-580} translateY={500} />
-			<Cloud scale={0.7} translateX={560} translateY={300} />
+			<RainCloud rotate={15} scale={0.6} translateX={500} translateY={-940} />
+			<RainCloud rotate={-15} scale={0.6} translateX={-430} translateY={-980} />
+			<RainCloud translateX={0} translateY={-600} />
+			<RainCloud scale={0.8} translateX={-530} translateY={-380} />
+			<RainCloud scale={0.7} translateX={-580} translateY={500} />
+			<RainCloud scale={0.7} translateX={560} translateY={300} />
 		</VideoBackground>
 	)
 }

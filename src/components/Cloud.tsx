@@ -1,12 +1,14 @@
 import styled from 'styled-components'
-import { Img } from 'remotion'
+import { Img, interpolate, useCurrentFrame } from 'remotion'
 import { Images } from '../assets'
+import React from 'react'
 
 type CloudProps = {
 	translateX?: number
 	translateY?: number
 	scale?: number
 	rotate?: number
+	children?: React.ReactNode
 }
 
 export const Cloud: React.FunctionComponent<CloudProps> = ({
@@ -14,17 +16,32 @@ export const Cloud: React.FunctionComponent<CloudProps> = ({
 	translateY = 0,
 	scale = 1,
 	rotate = 0,
-}) => (
-	<BaseCloud
-		src={Images.Cloud}
-		style={{
-			transform: `translateX(${translateX}px) translateY(${translateY}px) scale(${scale}) rotate(${rotate}deg)`,
-		}}
-	/>
-)
+	children,
+}) => {
+	const frame = useCurrentFrame()
+	const animatedTranslateX = interpolate(
+		frame,
+		[0, 120],
+		[translateX, translateX - 50],
+		{
+			extrapolateRight: 'clamp',
+		}
+	)
 
+	return (
+		<Container
+			style={{
+				transform: `translateX(${animatedTranslateX}px) translateY(${translateY}px) scale(${scale}) rotate(${rotate}deg)`,
+			}}>
+			<BaseCloud src={Images.Cloud} />
+			{children}
+		</Container>
+	)
+}
+const Container = styled.div`
+	position: absolute;
+`
 export const BaseCloud = styled(Img)`
 	width: 457px;
 	height: 295px;
-	position: absolute;
 `
