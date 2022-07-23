@@ -7,3 +7,5 @@ export { VideoTitleBox } from './VideoTitleBox'
 export { Typography }
 export { WeatherBaseImage } from './WeatherBaseImage'
 export { RainCloud } from './RainCloud'
+export { SnowCloud } from './SnowCloud'
+export { SunBehindTheCloud } from './SunBehindTheCloud'

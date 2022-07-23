@@ -11,7 +11,7 @@ export const pl_PL = {
 		raining: 'Pada dzeszcz',
 		sunny: 'Jest słonecznie',
 		snowing: 'Pada śnieg',
-		thunderstorm: 'Pada burza',
+		thunderstorm: 'Pada i jest burza!',
 		cloudy: 'Pochmurno i nie Pada!',
 	},
 	outro: {

@@ -1,25 +1,21 @@
 import { Loop } from 'remotion'
 import { Cloud } from './Cloud'
-import { Rain } from './Rain'
-import { Thunder } from './Thunder'
+import { Snow } from './Snow'
 
-type RainCloudProps = {
+type SnowCloudProps = {
 	translateX?: number
 	translateY?: number
 	scale?: number
 	rotate?: number
-	// eslint-disable-next-line react/boolean-prop-naming
-	withThunder?: boolean
 }
 
-export const RainCloud: React.FunctionComponent<RainCloudProps> = ({
+export const SnowCloud: React.FunctionComponent<SnowCloudProps> = ({
 	translateX = 0,
 	translateY = 0,
 	scale = 1,
 	rotate = 0,
-	withThunder,
 }) => {
-	const rainPosition = [
+	const snowPosition = [
 		{
 			bottom: -60,
 			left: 60,
@@ -60,16 +56,16 @@ export const RainCloud: React.FunctionComponent<RainCloudProps> = ({
 			translateY={translateY}
 			scale={scale}
 			rotate={rotate}>
-			<Loop durationInFrames={30} times={Infinity}>
-				{rainPosition.map((postion, index) => (
+			<Loop durationInFrames={45} times={Infinity}>
+				{snowPosition.map((postion, index) => (
 					<>
-						<Rain
+						<Snow
 							key={`${index}-1`}
 							left={postion.left}
 							bottom={postion.bottom}
 							opacity={1}
 						/>
-						<Rain
+						<Snow
 							key={`${index}-2`}
 							slower={false}
 							left={postion.left - 30}
@@ -79,12 +75,6 @@ export const RainCloud: React.FunctionComponent<RainCloudProps> = ({
 					</>
 				))}
 			</Loop>
-			{withThunder && (
-				<Loop durationInFrames={40} times={Infinity}>
-					<Thunder bottom={-150} left={190} />
-					<Thunder bottom={-120} left={80} scale={0.7} />
-				</Loop>
-			)}
 		</Cloud>
 	)
 }

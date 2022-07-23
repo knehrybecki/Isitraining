@@ -19,13 +19,27 @@ export const Rain: React.FunctionComponent<RainProps> = ({
 	slower,
 }) => {
 	const frame = useCurrentFrame()
-	const animatedOpacity = interpolate(frame, [0, slower ? 30 : 20], [opacity, 0])
-	const animatedBottom = interpolate(frame, [0, slower ? 30 : 20], [0, bottom], {
-		extrapolateRight: 'clamp',
-	})
-	const animatedLeft = interpolate(frame, [0, slower ? 30 : 20], [left, left - 10], {
-		extrapolateRight: 'clamp',
-	})
+	const animatedOpacity = interpolate(
+		frame,
+		[0, slower ? 30 : 20],
+		[opacity, 0]
+	)
+	const animatedBottom = interpolate(
+		frame,
+		[0, slower ? 30 : 20],
+		[0, bottom],
+		{
+			extrapolateRight: 'clamp',
+		}
+	)
+	const animatedLeft = interpolate(
+		frame,
+		[0, slower ? 30 : 20],
+		[left, left - 10],
+		{
+			extrapolateRight: 'clamp',
+		}
+	)
 
 	return (
 		<BaseRain
