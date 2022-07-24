@@ -5,7 +5,7 @@ export const useWeatherStateName = (weatherState: WeatherState) => {
 	const T = useTranslations()
 
 	switch (weatherState) {
-		case WeatherState.Rainging:
+		case WeatherState.Raining:
 			return T.weatherState.raining
 		case WeatherState.ThunderStrom:
 			return T.weatherState.thunderstorm
