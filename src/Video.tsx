@@ -1,9 +1,10 @@
-import { Composition } from 'remotion'
+import { Composition, continueRender, delayRender } from 'remotion'
 import { IsItRaining } from './components'
-import { VIDEO_CONFIG } from './config'
-import React, { useState } from 'react'
+import { APP_CONFIG, VIDEO_CONFIG } from './config'
+import React, { useEffect, useState } from 'react'
 import './reset.css'
 import { WeatherState } from './common'
+import { fetchWeatherDataForCity } from './actions'
 
 export const RemotionVideo: React.FunctionComponent = () => {
 	const {
@@ -13,11 +14,27 @@ export const RemotionVideo: React.FunctionComponent = () => {
 		VIDEO_HEIGHT,
 		VIDEO_ID,
 	} = VIDEO_CONFIG
+	const { CITY } = APP_CONFIG
+	const [handle] = useState(() => delayRender())
+	const [isReadyToRender, setIsReadyToRender] = useState(false)
+	const [temperature, setTemperature] = useState<number>()
+	const [weatherState, setWeatherState] = useState<WeatherState>()
+	const fetchWeatherData = async () => {
+		const { temperature, weatherState } =
+			await fetchWeatherDataForCity(CITY)
 
-	const [temperature] = useState(20)
-	const [weatherState] = useState(WeatherState.Sunny)
+		setTemperature(temperature)
+		setWeatherState(weatherState)
+		setIsReadyToRender(true)
+		continueRender(handle)
+	}
 
-	return (
+	useEffect(() => {
+		fetchWeatherData()
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
+
+	return isReadyToRender ? (
 		<Composition
 			fps={FPS}
 			width={VIDEO_WIDTH}
@@ -26,9 +43,9 @@ export const RemotionVideo: React.FunctionComponent = () => {
 			component={IsItRaining}
 			durationInFrames={VIDEO_DURATION_IN_FRAMES}
 			defaultProps={{
-				temperature,
-				weatherState,
+				temperature: temperature as number,
+				weatherState: weatherState as WeatherState,
 			}}
 		/>
-	)
+	) : null
 }
