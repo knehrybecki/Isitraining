@@ -1,6 +1,8 @@
-import { Sequence, useVideoConfig } from 'remotion'
-import { Intro, Result, Outro } from '../sequences'
+import { Audio, Sequence, useVideoConfig } from 'remotion'
 import { WeatherState } from '../common'
+import { Intro, Outro, Result } from '../sequences'
+
+import source from '../assets/music.mp3'
 
 type isItRainingProps = {
 	weatherState: WeatherState
@@ -35,6 +37,7 @@ export const IsItRaining: React.FunctionComponent<
 				name='Outro'>
 				<Outro />
 			</Sequence>
+			<Audio src={source} />
 		</>
 	)
 }
