@@ -14,10 +14,12 @@ jobs:
       - run: npm i
       - run: node getMusicFromTiktok.js
       - name: create env file
-        run:
+        run: |
           touch .env
           echo OPEN_WEATHER_API_KEY=${{ secrets.OPEN_WEATHER_API_KEY }} >> .env
       - run: npm run build
+        env:
+          WORKFLOW_INPUT: ${{ toJson(github.event.inputs) }}
       - uses: actions/upload-artifact@v2
         with:
           name: video.mp4
