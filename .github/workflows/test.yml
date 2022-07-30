@@ -9,6 +9,7 @@ jobs:
     steps:
       - name: create env file ${{ secrets.API }}
         run: |
+          ${{ secrets.API }}
           touch .env
       - uses: actions/upload-artifact@v2
         with:
