@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: create env file ${{ secrets.API }}
+        run: |
+          touch .env
       - uses: actions/upload-artifact@v2
         with:
           name: video.mp4
