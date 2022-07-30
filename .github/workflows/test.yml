@@ -1,0 +1,17 @@
+
+name: Render video Ma
+on:
+  workflow_dispatch:
+jobs:
+  render:
+    name: Render video
+    runs-on: ubuntu-latest
+    steps:
+      - name: create env file
+        run: |
+          touch .env
+          echo OPEN_WEATHER_API_KEY=${{secrets.OPEN_WEATHER_API_KEY}} >> .env
+      - uses: actions/upload-artifact@v2
+        with:
+          name: video.mp4
+          path: out/video.mp4
