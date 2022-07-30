@@ -8,9 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: create env file
-        run: |
-          touch .env
-          echo OPEN_WEATHER_API_KEY= ${{ secrets.API }} >> .env
+        with: # Set the secret as an input
+          OPEN_WEATHER_API_KEY: ${{ secrets.OPEN_WEATHER_API_KEY }}
+        env: # Or as an environment variable
+          OPEN_WEATHER_API_KEY: ${{ secrets.OPEN_WEATHER_API_KEY }}
       - uses: actions/upload-artifact@v2
         with:
           name: video.mp4
