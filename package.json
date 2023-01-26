@@ -1,13 +1,16 @@
 {
   "name": "tiktok",
   "version": "1.0.0",
+  "homepage": "https://knehrybecki.github.io/isitraining",
   "description": "My Remotion video",
   "type": "module",
   "scripts": {
     "start": "remotion preview src/index.tsx",
     "build": "remotion render src/index.tsx IsItRainging out/video.mp4",
     "upgrade": "remotion upgrade",
-    "test": "eslint src --ext ts,tsx,js,jsx && tsc"
+    "test": "eslint src --ext ts,tsx,js,jsx && tsc",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {},
   "license": "UNLICENSED",
